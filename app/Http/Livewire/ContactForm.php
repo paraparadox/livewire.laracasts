@@ -32,10 +32,9 @@ class ContactForm extends Component
         $contact['email'] = $this->email;
         $contact['phone'] = $this->phone;
         $contact['message'] = $this->message;
-
+        sleep(2);
         $this->successMessage = 'We received your message successfully and will get back to you shortly!';
         $this->resetForm();
-//        session()->flash('success_message', 'We received your message successfully and will get back to you shortly!');
     }
 
     private function resetForm()

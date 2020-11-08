@@ -11,7 +11,9 @@
                         {{ $successMessage }}
                     </div>
                     <div class="col-auto">
-                        <button wire:click="$set('successMessage', null)" class="btn btn-danger h-auto">X</button>
+                        <button wire:click="$set('successMessage', null)" type="button" class="close">
+                            <span>&times;</span>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -71,7 +73,10 @@
                         @enderror
                     </div>
                     <div class="form-group mb-1 text-right">
-                        <button class="btn btn-primary" type="submit" id="submit">Submit</button>
+                        <button class="btn btn-primary" type="submit" id="submit">
+                            <span wire:loading wire:target="submitForm" class="spinner-border spinner-border-sm"></span>
+                            Submit
+                        </button>
                     </div>
                 </form>
             </div>
