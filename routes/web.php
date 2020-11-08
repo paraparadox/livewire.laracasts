@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,6 +21,15 @@ Route::get('/', function () {
 Route::get('/examples', function () {
     return view('examples');
 })->name('examples');
+
+Route::post('/contact', function (Request $request) {
+    $contact = $request->validate([
+        'name' => 'required',
+        'email' => 'required|email',
+        'phone' => 'required|numeric',
+        'message' => 'required',
+    ]);
+});
 
 Auth::routes();
 

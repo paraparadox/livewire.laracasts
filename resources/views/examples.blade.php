@@ -33,24 +33,48 @@
                                 fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
                                 culpa qui officia deserunt mollit anim id est laborum.
                             </p>
+                            <p>
+                                Eget nullam non nisi est sit amet facilisis magna etiam. Pretium fusce id velit ut. Ac orci
+                                phasellus egestas tellus rutrum tellus pellentesque eu. Consequat nisl vel pretium lectus
+                                quam id leo in vitae. Tellus id interdum velit laoreet id donec ultrices tincidunt. Enim nec
+                                dui nunc mattis enim ut tellus. Justo laoreet sit amet cursus sit amet. Iaculis eu non diam
+                                phasellus vestibulum lorem sed.
+                            </p>
                         </div>
                         <div class="col">
                             <form action="/contact" method="POST">
+                                @csrf
                                 <div class="form-group mb-1">
                                     <label for="name">Name</label>
-                                    <input class="form-control" id="name" name="name">
+                                    <input class="form-control @error('name') alert-danger @enderror" id="name"
+                                        name="name" value="{{ old('name') }}">
+                                    @error('name')
+                                        <span class="bg-dark text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
                                 <div class="form-group mb-1">
                                     <label for="email">Email</label>
-                                    <input class="form-control" id="email" name="email" type="email">
+                                    <input class="form-control @error('email') alert-danger @enderror" id="email"
+                                        name="email" value="{{ old('email') }}">
+                                    @error('email')
+                                        <span class="bg-dark text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
                                 <div class="form-group mb-1">
                                     <label for="phone">Phone</label>
-                                    <input class="form-control" id="phone" name="phone" type="number">
+                                    <input class="form-control @error('phone') alert-danger @enderror" id="phone"
+                                        name="phone" value="{{ old('phone') }}">
+                                    @error('phone')
+                                        <span class="bg-dark text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
                                     <label for="message">Message</label>
-                                    <textarea class="form-control" id="message" name="message" rows="4"></textarea>
+                                    <textarea class="form-control @error('message') alert-danger @enderror" id="message"
+                                        name="message" rows="4">{{ old('message') }}</textarea>
+                                    @error('message')
+                                        <span class="bg-dark text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
                                 <div class="form-group mb-1 text-right">
                                     <button class="btn btn-primary" type="submit" id="submit">Submit</button>
