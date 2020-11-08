@@ -29,6 +29,8 @@ Route::post('/contact', function (Request $request) {
         'phone' => 'required|numeric',
         'message' => 'required',
     ]);
+
+    return back()->with('success_message', 'We received your message successfully and will get back to you shortly!');
 });
 
 Auth::routes();

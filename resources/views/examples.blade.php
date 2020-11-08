@@ -8,10 +8,10 @@
             <div class="card mb-2 bg-dark text-light">
                 <div class="card-header">{{ __('Examples') }}</div>
 
-                @if (session('status'))
-                    <div class="card-body">
+                @if (session('success_message'))
+                    <div class="card-body pb-1">
                         <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
+                            {{ session('success_message') }}
                         </div>
                     </div>
                 @endif
