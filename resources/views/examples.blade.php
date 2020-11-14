@@ -18,7 +18,7 @@
             </div>
 
             <livewire:contact-form />
-            <livewire:search-drop-down />
+            <livewire:search-form />
         </div>
     </div>
 </div>

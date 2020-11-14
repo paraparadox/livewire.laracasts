@@ -5,7 +5,7 @@ namespace App\Http\Livewire;
 use Illuminate\Support\Facades\Http;
 use Livewire\Component;
 
-class SearchDropDown extends Component
+class SearchForm extends Component
 {
     public $search;
     public $searchResults = [];
@@ -22,6 +22,6 @@ class SearchDropDown extends Component
 
     public function render()
     {
-        return view('livewire.search-drop-down');
+        return view('livewire.search-form');
     }
 }
