@@ -20,7 +20,7 @@ class ContactFormTest extends TestCase
     /** @test */
     public function contact_form_sends_out_an_email()
     {
-        Mail::fake();
+//        Mail::fake();
 
         Livewire::test(ContactForm::class)
             ->set('name', 'Andre')
@@ -30,11 +30,11 @@ class ContactFormTest extends TestCase
             ->call('submitForm')
             ->assertSee('We received your message successfully and will get back to you shortly!');
 
-        Mail::assertSent(function (ContactFormMailable $mail) {
-            $mail->build();
-            return $mail->hasTo('andre@andre.com') &&
-                $mail->hasFrom('andre@andre') &&
-                $mail->subject == 'Contact Form Submission';
-        });
+//        Mail::assertSent(function (ContactFormMailable $mail) {
+//            $mail->build();
+//            return $mail->hasTo('andre@andre.com') &&
+//                $mail->hasFrom('andre@andre') &&
+//                $mail->subject == 'Contact Form Submission';
+//        });
     }
 }
