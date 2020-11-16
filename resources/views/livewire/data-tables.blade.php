@@ -52,10 +52,10 @@
                 <tbody>
                 @forelse($users as $user)
                     <tr style="cursor: pointer;">
-                        <td class="align-middle">
+                        <td class="align-middle w-25">
                             {{ $user->name }}
                         </td>
-                        <td class="align-middle">
+                        <td class="align-middle w-50">
                             {{ $user->email }}
                         </td>
                         <td class="align-middle">
