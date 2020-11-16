@@ -29,7 +29,15 @@
                             {{ $user->email }}
                         </td>
                         <td class="align-middle">
-                            Active
+                            @if($user->active)
+                                <span class="text-success">
+                                    Active
+                                </span>
+                            @else
+                                <span class="text-danger">
+                                    Inactive
+                                </span>
+                            @endif
                         </td>
                         <td class="align-middle">
                             Edit
