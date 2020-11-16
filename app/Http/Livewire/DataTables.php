@@ -10,8 +10,9 @@ class DataTables extends Component
 {
     use WithPagination;
 
-//    The first method to do pagination with bootstrap:
+    // The first method to do pagination with bootstrap:
     protected $paginationTheme = 'bootstrap';
+    protected $queryString = ['search', 'active', 'sortField', 'sortAsc'];
 
     public $active = true;
     public $search;
