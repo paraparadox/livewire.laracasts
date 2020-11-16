@@ -15,12 +15,23 @@ class DataTables extends Component
 
     public $active = true;
     public $search;
+    public $sortField;
+    public $sortAsc = true;
+
+    public function sortBy($field)
+    {
+        if ($field == $this->sortField) {
+            $this->sortAsc = !$this->sortAsc;
+        } else {
+            $this->sortAsc = true;
+        }
+        $this->sortField = $field;
+    }
 
     public function updatingSearch()
     {
         $this->resetPage();
     }
-
     public function render()
     {
         $users = User::query()
@@ -29,6 +40,9 @@ class DataTables extends Component
                 $query
                     ->where('name', 'like', '%' . $this->search . '%')
                     ->orWhere('email', 'like', '%' . $this->search . '%');
+            })
+            ->when($this->sortField, function ($query) {
+                $query->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc');
             })
             ->paginate(10);
         return view('livewire.data-tables', compact('users'));
