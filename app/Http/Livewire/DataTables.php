@@ -13,9 +13,24 @@ class DataTables extends Component
 //    The first method to do pagination with bootstrap:
     protected $paginationTheme = 'bootstrap';
 
+    public $active = true;
+    public $search;
+
+    public function updatingSearch()
+    {
+        $this->resetPage();
+    }
+
     public function render()
     {
-        $users = User::paginate(10);
+        $users = User::query()
+            ->where('active', $this->active)
+            ->where(function ($query) {
+                $query
+                    ->where('name', 'like', '%' . $this->search . '%')
+                    ->orWhere('email', 'like', '%' . $this->search . '%');
+            })
+            ->paginate(10);
         return view('livewire.data-tables', compact('users'));
     }
 

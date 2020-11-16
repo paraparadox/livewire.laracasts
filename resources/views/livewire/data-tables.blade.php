@@ -4,7 +4,21 @@
     <div class="card-header">
         <h3>{{ __('Livewire Data Tables') }}</h3>
         <div class="form-group mb-0 mt-2">
-            <input {{--wire:model.dbounce.300ms="search"--}} class="form-control">
+            <div class="row">
+                <div class="col">
+                    <input wire:model="search" class="form-control">
+                </div>
+                <div class="col-auto">
+                    <div class="form-check">
+                        <input wire:model="active" class="form-check-input" type="checkbox" id="activeness_checkbox">
+                        <label class="form-check-label" for="activeness_checkbox">
+                            Active
+                        </label>
+                    </div>
+                </div>
+
+            </div>
+
         </div>
     </div>
 
@@ -45,7 +59,15 @@
                     </tr>
                 @empty
                     <tr class="text-center">
-{{--                        <td colspan="2">There are no results for "{{ $search }}"</td>--}}
+                        <td colspan="4">
+                            There are no
+                            @if($active)
+                                active
+                            @else
+                                inactive
+                            @endif
+                            users like "{{ $search }}"
+                        </td>
                     </tr>
                 @endforelse
                 </tbody>
