@@ -19,6 +19,7 @@
 
             <livewire:contact-form />
             <livewire:search-form />
+            <livewire:data-tables />
         </div>
     </div>
 </div>
