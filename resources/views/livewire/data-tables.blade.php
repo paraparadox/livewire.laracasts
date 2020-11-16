@@ -16,9 +16,7 @@
                         </label>
                     </div>
                 </div>
-
             </div>
-
         </div>
     </div>
 
@@ -29,33 +27,21 @@
                     <tr>
                         <th>
                             <button wire:click="sortBy('name')" class="btn btn-dark">
-                                @if ($sortField == 'name')
-                                    @if ($sortAsc)
-                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-caret-down-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
-                                        </svg>
-                                    @else
-                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-caret-up-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M7.247 4.86l-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/>
-                                        </svg>
-                                    @endif
-                                @endif
+                                <x-sort-icon
+                                    field="name"
+                                    :sortField="$sortField"
+                                    :sortAsc="$sortAsc"
+                                />
                                 Name
                             </button>
                         </th>
                         <th>
                             <button wire:click="sortBy('email')" class="btn btn-dark">
-                                @if ($sortField == 'email')
-                                    @if ($sortAsc)
-                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-caret-down-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
-                                        </svg>
-                                    @else
-                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-caret-up-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M7.247 4.86l-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/>
-                                        </svg>
-                                    @endif
-                                @endif
+                                <x-sort-icon
+                                    field="email"
+                                    :sortField="$sortField"
+                                    :sortAsc="$sortAsc"
+                                />
                                 Email
                             </button>
                         </th>
@@ -65,7 +51,7 @@
                 </thead>
                 <tbody>
                 @forelse($users as $user)
-                    <tr {{--onclick="window.open('{{ $result['trackViewUrl'] ?? '#' }}', '_blank');"--}} style="cursor: pointer;">
+                    <tr style="cursor: pointer;">
                         <td class="align-middle">
                             {{ $user->name }}
                         </td>
